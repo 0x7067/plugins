@@ -74,8 +74,8 @@ to fetch.
   labels) live under the pull request endpoints on Origin. If the code uses
   them on real issues, see "Where GitHub features live on Origin" in
   `references/brief.md`.
-- Origin has no GraphQL. Break each query into REST calls and count the calls
-  per event.
+- Origin has no GraphQL. Break each query into REST calls and record the
+  fan-out.
 - The scopes to request are the union of `x-origin-scopes.scopes` over the
   operations you named. Do not translate the GitHub manifest.
 - Each GitHub event and action pair maps to at most one slug in "Events". The

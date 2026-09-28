@@ -1,7 +1,7 @@
 # Origin Apps
 
 Two skills for building on [Cursor Origin](https://cursor.com/docs/api/origin),
-Cursor's code host. They cover creating an Origin App, calling the API,
+Cursor's code forge. They cover creating an Origin App, calling the API,
 receiving webhooks, and moving an existing GitHub App over. The plugin is
 skills only, so it runs in Cursor, Claude Code, Codex, and any agent that
 reads [Agent Skills](https://agentskills.io).

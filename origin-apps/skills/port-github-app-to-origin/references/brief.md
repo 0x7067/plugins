@@ -48,8 +48,8 @@ different identifier, a changed path, filtering on the client, or a marker
 the app controls. Often it is the right answer. It becomes a gap, and gets a
 feedback entry, when it costs one of these:
 
-- extra calls per event that grow with repository or activity size, at this
-  app's volume;
+- fan-out, meaning extra calls per event, that grows with repository or
+  activity size at this app's volume;
 - a possibly wrong answer, such as guessing which check run or comment is the
   app's own, inferring a pull request from a SHA that several versions
   share, or building a URL whose format the docs do not promise;
@@ -71,7 +71,7 @@ Write one entry per gap, in Origin terms, with nothing that reveals the
 team's internals. When there is at least one entry, also write the section
 to `ORIGIN-FEEDBACK.md` next to the brief. When there is none, write no file
 and say so in one line. The file carries no license header, repository name,
-product name, or mention of another code host. If the docs and observed
+product name, or mention of another forge. If the docs and observed
 behavior disagree, put that in a short "Docs questions for Cursor" list at
 the end of the feedback, not in the team's questions. A suggested shape:
 
