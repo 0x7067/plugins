@@ -1,25 +1,25 @@
 # Origin Apps
 
 Two skills for building on [Cursor Origin](https://cursor.com/docs/api/origin),
-Cursor's code forge. They cover creating an Origin App, calling the API,
-receiving webhooks, and bringing an existing GitHub App across. The plugin is
+Cursor's code host. They cover creating an Origin App, calling the API,
+receiving webhooks, and moving an existing GitHub App over. The plugin is
 skills only, so it runs in Cursor, Claude Code, Codex, and any agent that
 reads [Agent Skills](https://agentskills.io).
 
 ## What it includes
 
-`origin-api` routes questions to the section of the Origin docs that answers
-them and names the rules to check first (native versus mirrored repositories,
-event subscriptions, webhook verification, scopes from the spec, opaque
-tokens and IDs). Use it for any Origin work.
+`origin-api` sends the agent to the section of the Origin docs that answers
+its question and lists the rules to check first: native versus mirrored
+repositories, event subscriptions, webhook verification, scopes from the
+spec, opaque tokens and IDs. Use it for any Origin work.
 
 `port-github-app-to-origin` plans the move of an existing GitHub App. Run it
-inside the app's repository. It reads what the app uses out of the code, maps
-that onto the live Origin spec, and writes a porting brief: a capability
-table, the webhook fields your handlers read and where each comes from on
-Origin, the scopes to request, a first-run path, feedback for Cursor, and
-the questions your team should settle first. It plans; it writes no code
-unless you ask.
+inside the app's repository. It reads what the app uses out of the code,
+maps that onto the live Origin spec, and writes a porting brief with what
+carries over and what does not, the webhook fields your handlers read and
+where each comes from on Origin, the scopes to request, an end-to-end test
+for your app, feedback for Cursor, and the questions your team has to
+decide. It plans. It writes no code unless you ask.
 
 Both skills fetch the spec at run time and never name an endpoint from memory.
 
@@ -46,8 +46,8 @@ refers to `origin-api`).
 ## Requirements
 
 - Network access to `https://cursor.com/docs/api/origin/*` during the run.
-- For the porting skill, read access to the app's source. Producing the brief
-  needs no Origin credentials. You follow the brief's hello-world path
+- For the porting skill, read access to the app's source. Writing the brief
+  needs no Origin credentials. You run the brief's end-to-end test
   afterwards.
 
 ## Where the brief goes

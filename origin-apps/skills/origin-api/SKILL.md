@@ -17,13 +17,14 @@ The docs are the source of truth. Do not name an endpoint, scope, event slug,
 header, or limit from memory. Where this file and the docs disagree, the docs
 win.
 
-Under `https://cursor.com/docs/api/origin/`: `llms.txt` is the index and
-links every section, endpoint, and webhook payload; `openapi.yaml` is the
-contract (its `x-origin-*` extensions are summarized in "Endpoint
-reference"); `llms-full.txt` is the whole reference in one file; `changelog`
-says what moved. For one question, read `llms.txt` and fetch only the section
-that answers it. Fetch `llms-full.txt` or `openapi.yaml` whole for broad work
-such as a porting brief. Cite `operationId`s and section names.
+The docs live under `https://cursor.com/docs/api/origin/`. `llms.txt` is
+the index and links every section, endpoint, and webhook payload.
+`openapi.yaml` is the contract, and "Endpoint reference" explains its
+`x-origin-*` extensions. `llms-full.txt` is the whole reference in one file.
+`changelog` says what moved. For one question, read `llms.txt` and fetch
+only the section that answers it. Fetch `llms-full.txt` or `openapi.yaml`
+whole when you need all of it, as a porting brief does. Cite `operationId`s
+and section names.
 
 ## Where to look
 
@@ -33,7 +34,7 @@ such as a porting brief. Cite `operationId`s and section names.
 | Install flow and the callback receipt | "Installation", "Installation receipt" |
 | Which scope an operation needs | `x-origin-scopes` on the operation; "Scopes" |
 | What an installation can do on a mirrored repository | "Mirrored repositories" |
-| Webhook headers, signature, envelope, retries, pausing, recovery | "Webhooks" |
+| Webhook headers, signature, delivery format, retries, pausing, recovery | "Webhooks" |
 | Which events exist and which arrive without subscribing | "Events" |
 | Payload shapes | "Event payloads" |
 | Pagination, errors, request IDs, repository paths, IDs | "Common conventions" |
@@ -45,19 +46,19 @@ such as a porting brief. Cite `operationId`s and section names.
 ## Rules to check first
 
 1. **Native or mirror.** An installation keeps its full scopes only on
-   native repositories and stable outbound mirrors, and some writes are
-   native-only (merging a pull request, changing the default branch); read
-   each operation's description for mirror limits. On a GitHub-sourced
-   mirror, every event except `repository.pushed` still arrives, and every
-   call beyond metadata and contents reads returns `403` ("Mirrored
-   repositories", "Events").
-2. **Subscribe.** Only `installation.*` events arrive without a subscription;
-   a missing subscription is silence, not an error ("Events").
+   native repositories (created on Origin) and stable outbound mirrors
+   (Origin is the source and pushes to GitHub). Some writes work only on
+   native repositories, such as merging a pull request or changing the
+   default branch, so read each operation's description for mirror limits.
+   On a repository mirrored from GitHub, every event except
+   `repository.pushed` still arrives, and every call beyond metadata and
+   contents reads returns `403` ("Mirrored repositories", "Events").
+2. **Subscribe.** Only `installation.*` events arrive without a subscription.
+   A missing subscription produces silence, not an error ("Events").
 3. **Verify, dedupe, acknowledge.** Verify the signature over the raw body
    before parsing, dedupe on the delivery ID, return `2xx`, then process
-   ("Signature verification", "Retries", "Automatic disable"). The digest
-   step differs from Standard Webhooks; do not assume a generic verifier
-   passes.
+   ("Signature verification", "Retries", "Automatic disable"). Origin signs
+   a digest, which Standard Webhooks does not, so a generic verifier fails.
 4. **Scopes from the spec.** Request the union of `x-origin-scopes.scopes`
    over the operations the app calls ("Scopes").
 5. **Opaque tokens and IDs.** Do not build or parse page tokens or IDs
