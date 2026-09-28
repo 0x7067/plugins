@@ -50,11 +50,21 @@ find.
 
 ## How to map
 
-Fetch `openapi.yaml` and `llms-full.txt` whole. A brief needs all of it.
-`rg -B1 -A4 'x-origin-scopes:' openapi.yaml` lists every operation with its
-scopes. `rg -A3 'x-origin-webhook-events:' openapi.yaml` lists every event
-slug with its payload schema. Each endpoint and each webhook payload type has
-a docs section that spells out its fields as dotted paths.
+A brief needs the whole spec, but the files are too large to read into
+context (about 870 KB and 575 KB). Download them to disk and search them:
+
+```bash
+curl -sSL https://cursor.com/docs/api/origin/openapi.yaml -o openapi.yaml
+curl -sSL https://cursor.com/docs/api/origin/llms-full.txt -o llms-full.txt
+rg -B1 -A4 'x-origin-scopes:' openapi.yaml        # every operation with its scopes
+rg -A3 'x-origin-webhook-events:' openapi.yaml    # every event slug with its payload schema
+rg -n '^### Get Pull Request$' llms-full.txt      # then read to the next ### heading
+```
+
+Read only the sections a match points at. Each endpoint and each webhook
+payload type has a section in `llms-full.txt` that spells out its fields as
+dotted paths. For a single question later, `llms.txt` names the one section
+to fetch.
 
 - A matching name is a candidate, not an answer. Read the operation's
   description, parameters, and response fields against what the code passes
@@ -83,6 +93,6 @@ a docs section that spells out its fields as dotted paths.
 
 ## Before finishing
 
-Every claim about Origin points at something in the fetched files. Every gap
+Every claim about Origin points at something in the downloaded files. Every gap
 has a feedback entry that names its cost. The feedback reveals nothing about
 the team's internals. The summary names the native-or-mirror question.

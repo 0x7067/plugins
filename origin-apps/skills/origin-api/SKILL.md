@@ -22,9 +22,11 @@ the index and links every section, endpoint, and webhook payload.
 `openapi.yaml` is the contract, and "Endpoint reference" explains its
 `x-origin-*` extensions. `llms-full.txt` is the whole reference in one file.
 `changelog` says what moved. For one question, read `llms.txt` and fetch
-only the section that answers it. Fetch `llms-full.txt` or `openapi.yaml`
-whole when you need all of it, as a porting brief does. Cite `operationId`s
-and section names.
+only the section that answers it. `llms-full.txt` and `openapi.yaml` are
+each several hundred kilobytes, more than a context window holds. When you
+need all of them, as a porting brief does, download them to disk with
+`curl -o` and search with `rg`, reading only the matching sections. Never
+read or paste either file whole. Cite `operationId`s and section names.
 
 ## Where to look
 

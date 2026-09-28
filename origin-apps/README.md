@@ -21,7 +21,7 @@ where each comes from on Origin, the scopes to request, an end-to-end test
 for your app, feedback for Cursor, and the questions your team has to
 decide. It plans. It writes no code unless you ask.
 
-Both skills fetch the spec at run time and never name an endpoint from memory.
+Both skills read the live spec at run time and never name an endpoint from memory.
 
 ## When to use
 
