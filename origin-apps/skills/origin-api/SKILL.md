@@ -20,57 +20,58 @@ rules to check first; it does not restate the docs.
 
 Do not name an endpoint, scope, event slug, header, or limit from memory.
 
-All paths below are under `https://cursor.com/docs/api/origin/`.
+The docs live under `https://cursor.com/docs/api/origin/`:
 
-- `llms.txt`: the index. Every section, endpoint, and webhook payload has its
-  own page at `reference/<anchor>.md`, and the index links to each.
+- `llms.txt`: the index. It links every section, endpoint, and webhook
+  payload page. Quoted names below ("Scopes", "Events") are section headings;
+  find the current link for one in `llms.txt`.
 - `openapi.yaml`: the contract. Its `x-origin-*` extensions are summarized in
-  `reference/endpoint-reference.md`.
-- `llms-full.txt`: every reference page in one file. `changelog`: what moved.
+  "Endpoint reference".
+- `llms-full.txt`: the whole reference in one file. `changelog`: what moved.
 
-For one question, read `llms.txt`, then fetch the one `reference/<anchor>.md`
-that answers it. Fetch the whole `llms-full.txt` or `openapi.yaml` only for
-broad work, such as a porting brief.
+For one question, read `llms.txt`, then fetch only the section that answers
+it. Fetch the whole `llms-full.txt` or `openapi.yaml` for broad work, such as
+a porting brief.
 
-Cite `operationId`s and reference pages. Where this file and the docs
+Cite `operationId`s and section names. Where this file and the docs
 disagree, the docs win.
 
 ## Where to look
 
-| Question | Page |
+| Question | Section |
 | --- | --- |
-| Which credential for which call; minting and lifetime | `reference/authentication.md` and its subsections through `reference/git-https-authentication.md` |
-| Install flow and the callback receipt | `reference/installation.md`, `reference/installation-receipt.md` |
-| Which scope an operation needs | `x-origin-scopes` on the operation; `reference/scopes.md` |
-| What an installation can do on a mirrored repository | `reference/mirrored-repositories.md` |
-| Webhook headers, signature, envelope, retries, pausing, recovery | `reference/webhooks.md` |
-| Which events exist and which arrive without subscribing | `reference/events.md` |
-| Payload shapes | `reference/event-payloads.md` |
-| Pagination, errors, request IDs, repository paths | `reference/common-conventions.md` |
-| ID form and stability | `reference/ids.md` |
-| What a `PREVIEW` badge means | `reference/preview.md` |
-| Rate limits | `reference/rate-limits.md` |
-| Check-run keys, attempts, stale writes | `reference/check-runs.md` |
-| What is not there yet | `reference/current-limitations.md` |
-| A checklist to build against | `reference/implementation-checklist.md` |
+| Which credential for which call; minting and lifetime | "Authentication" and its subsections |
+| Install flow and the callback receipt | "Installation", "Installation receipt" |
+| Which scope an operation needs | `x-origin-scopes` on the operation; "Scopes" |
+| What an installation can do on a mirrored repository | "Mirrored repositories" |
+| Webhook headers, signature, envelope, retries, pausing, recovery | "Webhooks" |
+| Which events exist and which arrive without subscribing | "Events" |
+| Payload shapes | "Event payloads" |
+| Pagination, errors, request IDs, repository paths | "Common conventions" |
+| ID form and stability | "IDs" |
+| What a `PREVIEW` badge means | "Preview" |
+| Rate limits | "Rate limits" |
+| Check-run keys, attempts, stale writes | "Check runs" |
+| What is not there yet | "Current limitations" |
+| A checklist to build against | "Implementation checklist" |
 
 ## Rules to check first
 
 1. **Native or mirror.** Confirm the target repositories are Origin-native
    or stable outbound mirrors. On any other mirror state an installation can
-   only read, and pushes are not delivered (`reference/mirrored-repositories.md`,
-   `reference/events.md`).
+   only read, and pushes are not delivered ("Mirrored repositories",
+   "Events").
 2. **Subscribe.** Only the `installation.*` events arrive without a
-   subscription; a missing subscription is silence, not an error (`reference/events.md`).
+   subscription; a missing subscription is silence, not an error ("Events").
 3. **Verify, dedupe, acknowledge.** Verify the signature over the raw body
    before parsing, dedupe on the delivery ID, return `2xx`, then process
-   (`reference/signature-verification.md`, `reference/retries.md`, `reference/automatic-disable.md`). The digest
+   ("Signature verification", "Retries", "Automatic disable"). The digest
    step differs from the Standard Webhooks spec; do not assume a generic
    verifier passes.
 4. **Scopes from the spec.** Request the union of `x-origin-scopes.scopes`
-   over the operations the app calls (`reference/scopes.md`).
+   over the operations the app calls ("Scopes").
 5. **Opaque tokens and IDs.** Do not build or parse page tokens or IDs
-   (`reference/pagination.md`, `reference/ids.md`).
+   ("Pagination", "IDs").
 
 Porting an existing GitHub App: the `port-github-app-to-origin` skill in
 this plugin covers how its capabilities map onto Origin.

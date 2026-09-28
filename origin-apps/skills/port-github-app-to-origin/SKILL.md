@@ -46,7 +46,7 @@ section.
 3. **Map** each capability (`references/spec-mapping.md`). Map the payload
    fields the code reads, not only the event names; if a payload lacks a
    field the REST resource has, a follow-up read is the usual answer
-   (`reference/event-payloads.md`). Check `references/origin-isms.md` before calling
+   ("Event payloads"). Check `references/origin-isms.md` before calling
    anything a gap, and `references/gap-bar.md` before writing feedback. A
    capability the Origin docs do not mention is not available today and gets
    a question. A behavior the docs neither confirm nor deny becomes a
@@ -54,7 +54,7 @@ section.
    carried over from the app's current platform.
 4. **Write the brief** per `references/brief-template.md`: guidance and a
    default outline, not a form. Every Origin claim names an `operationId`, a
-   slug, or a `reference/<anchor>.md` page. When there is feedback, also write the
+   slug, or a docs section. When there is feedback, also write the
    Feedback section to `ORIGIN-FEEDBACK.md` beside the brief.
 5. **Self-check** before finishing: every Origin claim resolves in the
    fetched files; every gap has a feedback entry that names a tradeoff from
