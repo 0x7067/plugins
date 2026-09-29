@@ -49,9 +49,10 @@ read or paste either file whole. Cite `operationId`s and section names.
 
 1. **Native or mirror.** An installation keeps its full scopes only on
    native repositories (created on Origin) and stable outbound mirrors
-   (Origin is the source and pushes to GitHub). Some writes work only on
-   native repositories, such as merging a pull request or changing the
-   default branch, so read each operation's description for mirror limits.
+   (Origin is the source and pushes to GitHub). A stable outbound mirror is
+   not a merge target: Merge Pull Request works only on native repositories,
+   and so does changing the default branch. Read each operation's description
+   for mirror limits.
    On a repository mirrored from GitHub, every event except
    `repository.pushed` still arrives, and every call beyond metadata and
    contents reads returns `403` ("Mirrored repositories", "Events").

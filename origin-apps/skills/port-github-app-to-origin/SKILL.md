@@ -61,9 +61,11 @@ rg -A3 'x-origin-webhook-events:' openapi.yaml    # every event slug with its pa
 rg -n '^### Get Pull Request$' llms-full.txt      # then read to the next ### heading
 ```
 
-Read only the sections a match points at. Each endpoint and each webhook
-payload type has a section in `llms-full.txt` that spells out its fields as
-dotted paths. For a single question later, `llms.txt` names the one section
+Read only the sections a match points at. Do not open `openapi.yaml` or
+`llms-full.txt` with a plain file read; file readers stop after about 50 KB,
+so find the line with `rg -n` and read that line range. Each endpoint and
+each webhook payload type has a section in `llms-full.txt` that spells out
+its fields as dotted paths. For a single question later, `llms.txt` names the one section
 to fetch.
 
 - A matching name is a candidate, not an answer. Read the operation's
