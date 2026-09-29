@@ -31,7 +31,7 @@ that has nothing to say. Pick whatever table shape fits the app. A good brief:
 
 Back every claim about the app with `file:line`, or with "from
 `<dependency>`" when a library does it for the app. Back every claim about
-Origin with something in the downloaded docs. If you want short labels in a
+Origin with something in the saved docs. If you want short labels in a
 table, use plain ones: works as is, workaround (say the cost), not available
 (ask the team), gap (write feedback).
 
@@ -90,7 +90,7 @@ their internals first.
 
 ## Where GitHub features live on Origin
 
-Check this before calling anything a gap, then confirm in the downloaded docs.
+Check this before calling anything a gap, then confirm in the saved docs.
 This list goes stale; the docs win.
 
 Has an Origin equivalent: install callback parameters → "Installation

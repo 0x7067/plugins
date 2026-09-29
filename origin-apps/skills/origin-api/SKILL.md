@@ -21,12 +21,13 @@ The docs live under `https://cursor.com/docs/api/origin/`. `llms.txt` is
 the index and links every section, endpoint, and webhook payload.
 `openapi.yaml` is the contract, and "Endpoint reference" explains its
 `x-origin-*` extensions. `llms-full.txt` is the whole reference in one file.
-`changelog` says what moved. For one question, read `llms.txt` and fetch
-only the section that answers it. `llms-full.txt` and `openapi.yaml` are
-each several hundred kilobytes, more than a context window holds. When you
-need all of them, as a porting brief does, download them to disk with
-`curl -o` and search with `rg`, reading only the matching sections. Never
-read or paste either file whole. Cite `operationId`s and section names.
+`changelog` says what moved. For one question, start at `llms.txt` and
+fetch only the section that answers it. `llms-full.txt` and `openapi.yaml`
+are each several hundred kilobytes, too large to read into context whole.
+When you need all of them, as a porting brief does, save them locally if you
+can, outside any repository you are working in, search them for the section
+heading or annotation you need, and read only the matching part. Cite
+`operationId`s and section names.
 
 ## Where to look
 

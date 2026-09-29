@@ -50,23 +50,22 @@ find.
 
 ## How to map
 
-A brief needs the whole spec, but the files are too large to read into
-context (about 870 KB and 575 KB). Download them to disk and search them:
+A brief needs the whole spec, but `openapi.yaml` and `llms-full.txt` are
+each several hundred kilobytes, too large to read into context whole. Save
+them locally if you can, in a temporary location outside the app's
+repository so nothing in the working tree is overwritten or left behind,
+then search them and read only the matching part:
 
-```bash
-curl -sSL https://cursor.com/docs/api/origin/openapi.yaml -o openapi.yaml
-curl -sSL https://cursor.com/docs/api/origin/llms-full.txt -o llms-full.txt
-rg -B1 -A4 'x-origin-scopes:' openapi.yaml        # every operation with its scopes
-rg -A3 'x-origin-webhook-events:' openapi.yaml    # every event slug with its payload schema
-rg -n '^### Get Pull Request$' llms-full.txt      # then read to the next ### heading
-```
+- `x-origin-scopes:` in `openapi.yaml` marks every operation with its
+  scopes; the `operationId` sits a line above.
+- `x-origin-webhook-events:` in `openapi.yaml` marks every webhook payload
+  schema with the event slugs that deliver it.
+- `### <Endpoint name>` and `### <Payload type>` headings in `llms-full.txt`
+  start the section that spells out that endpoint's or payload's fields as
+  dotted paths; read from the heading to the next `###`.
 
-Read only the sections a match points at. Do not open `openapi.yaml` or
-`llms-full.txt` with a plain file read; file readers stop after about 50 KB,
-so find the line with `rg -n` and read that line range. Each endpoint and
-each webhook payload type has a section in `llms-full.txt` that spells out
-its fields as dotted paths. For a single question later, `llms.txt` names the one section
-to fetch.
+For a single question later, start at `llms.txt` and fetch just that
+section.
 
 - A matching name is a candidate, not an answer. Read the operation's
   description, parameters, and response fields against what the code passes
@@ -95,6 +94,6 @@ to fetch.
 
 ## Before finishing
 
-Every claim about Origin points at something in the downloaded files. Every gap
+Every claim about Origin points at something in the saved docs. Every gap
 has a feedback entry that names its cost. The feedback reveals nothing about
 the team's internals. The summary names the native-or-mirror question.
