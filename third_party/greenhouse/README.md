@@ -33,8 +33,9 @@ A Greenhouse **Site Admin** must enable MCP scopes under **Configure → Dev Cen
 
 If sign-in still ends on "Unable to authorize", ask the Site Admin to add Cursor's redirect URLs in the **Clients** tab of MCP Access:
 
-- `https://cursor.com/api/mcp/oauth/callback`
-- `cursor://anysphere.cursor-mcp/oauth/callback`
+- `https://www.cursor.com/agents/mcp/oauth/callback` (Grok Bot)
+- `http://localhost:8787/callback` (Grok Bot local fallback)
+- `cursor://anysphere.cursor-mcp/oauth/callback` (Cursor IDE)
 
 ## Notes
 
