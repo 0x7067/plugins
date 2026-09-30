@@ -31,15 +31,12 @@ heading or annotation you need, and read only the matching part. Cite
 
 ## Rules to check first
 
-1. **Native or mirror.** An installation keeps its full scopes only on
-   native repositories (created on Origin) and stable outbound mirrors
-   (Origin is the source and pushes to GitHub). A stable outbound mirror is
-   not a merge target: Merge Pull Request works only on native repositories,
-   and so does changing the default branch. Read each operation's description
-   for mirror limits.
-   On a repository mirrored from GitHub, every event except
-   `repository.pushed` still arrives, and every call beyond metadata and
-   contents reads returns `403` ("Mirrored repositories", "Events").
+1. **Native or mirror.** A repository is either native (created on Origin)
+   or a GitHub mirror. On a native repository an installation has its full
+   scopes and every write. On a GitHub mirror, every event except
+   `repository.pushed` still arrives, every call beyond metadata and
+   contents reads returns `403`, and merging a pull request or changing the
+   default branch is not available ("Mirrored repositories", "Events").
 2. **Subscribe.** Only `installation.*` events arrive without a subscription.
    A missing subscription produces silence, not an error ("Events").
 3. **Verify, dedupe, acknowledge.** Verify the signature over the raw body

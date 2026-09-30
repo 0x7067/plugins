@@ -110,11 +110,10 @@ the app's own check runs or comments by author → the check run `key`, or a
 marker the app controls; user sign-in and acting as a user → "Acting on
 behalf of users" (user confirmation receipt, installation user tokens).
 
-Repositories mirrored from GitHub: an installation can only read metadata
-and contents until the mirror becomes a stable outbound mirror (Origin is
-the source and pushes to GitHub). Merging a pull request and changing the
-default branch work only on native repositories, the ones created on Origin
-("Mirrored repositories").
+GitHub mirrors: an installation can only read metadata and contents, and
+merging a pull request or changing the default branch is not available.
+Every write needs a native repository, one created on Origin ("Mirrored
+repositories").
 
 Not in the current spec (ask the team; feedback only if it blocks the main
 flow): GraphQL (break each query into REST calls); Issues (pull request
