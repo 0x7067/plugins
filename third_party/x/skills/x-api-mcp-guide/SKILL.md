@@ -353,24 +353,35 @@ Classic unencrypted DMs (`/2/dm_conversations/...`) are a different product. If 
 
 ### Clone the helper (required — do it yourself)
 
-If `xchat_lite.py` is not already on disk (`$HOME/xchat-lite/xchat_lite.py` or `./xchat-lite/xchat_lite.py`), clone it **now**. Do not ask the user where it is, to download it, or to “find the X Chat skill.”
+Pick **one** `XCHAT_ROOT` and use it for clone, `HELPER`, and `SCRIPT`. Do not treat `./xchat-lite` as present and then run commands against `$HOME/xchat-lite`.
+
+1. `$HOME/xchat-lite` if `xchat_lite.py` is there
+2. else `./xchat-lite` if `xchat_lite.py` is there (workspace clone from the old skill)
+3. else clone to `$HOME/xchat-lite`
+
+Do not ask the user where it is, to download it, or to “find the X Chat skill.”
 
 ```bash
-git clone https://github.com/xdevplatform/xchat-grokbot-helper.git "$HOME/xchat-lite"
-cd "$HOME/xchat-lite"
-python3 -m venv .venv && .venv/bin/pip install -U pip chatxdk
-```
-
-Not in git with this plugin. Reuse the existing clone on later turns.
-
-**Chat PIN only.** Secret-request into `CHAT_PIN`. Never echo it. Never ask them to paste the PIN into the transcript. The helper also reads Grok Bot `box-secrets.json` → `card.CHAT_PIN` if env is empty. Do not ask for anything else (no Bearer token, no password, no juicebox dump).
-
-```bash
-HELPER="$HOME/xchat-lite/.venv/bin/python"
-SCRIPT="$HOME/xchat-lite/xchat_lite.py"
+if [ -f "$HOME/xchat-lite/xchat_lite.py" ]; then
+  XCHAT_ROOT="$HOME/xchat-lite"
+elif [ -f "./xchat-lite/xchat_lite.py" ]; then
+  XCHAT_ROOT="$(pwd)/xchat-lite"
+else
+  git clone https://github.com/xdevplatform/xchat-grokbot-helper.git "$HOME/xchat-lite"
+  XCHAT_ROOT="$HOME/xchat-lite"
+fi
+if [ ! -x "$XCHAT_ROOT/.venv/bin/python" ]; then
+  python3 -m venv "$XCHAT_ROOT/.venv" && "$XCHAT_ROOT/.venv/bin/pip" install -U pip chatxdk
+fi
+HELPER="$XCHAT_ROOT/.venv/bin/python"
+SCRIPT="$XCHAT_ROOT/xchat_lite.py"
 
 $HELPER $SCRIPT --user-id "$X_USER_ID" --key-version "$VER" --juicebox "$JUICEBOX_PATH" unlock-check
 ```
+
+Not in git with this plugin. Reuse that same `XCHAT_ROOT` on later turns.
+
+**Chat PIN only.** Secret-request into `CHAT_PIN`. Never echo it. Never ask them to paste the PIN into the transcript. The helper also reads Grok Bot `box-secrets.json` → `card.CHAT_PIN` if env is empty. Do not ask for anything else (no Bearer token, no password, no juicebox dump).
 
 `--user-id` is the numeric X id from `get_users_me`. Do not use the shell’s `$UID` (Unix account id).
 
