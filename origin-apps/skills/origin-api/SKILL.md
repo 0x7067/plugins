@@ -29,23 +29,6 @@ can, outside any repository you are working in, search them for the section
 heading or annotation you need, and read only the matching part. Cite
 `operationId`s and section names.
 
-## Where to look
-
-| Question | Section |
-| --- | --- |
-| Which credential for which call; minting and lifetime | "Authentication" and its subsections |
-| Install flow and the callback receipt | "Installation", "Installation receipt" |
-| Which scope an operation needs | `x-origin-scopes` on the operation; "Scopes" |
-| What an installation can do on a mirrored repository | "Mirrored repositories" |
-| Webhook headers, signature, delivery format, retries, pausing, recovery | "Webhooks" |
-| Which events exist and which arrive without subscribing | "Events" |
-| Payload shapes | "Event payloads" |
-| Pagination, errors, request IDs, repository paths, IDs | "Common conventions" |
-| Rate limits | "Rate limits" |
-| Check-run keys, attempts, stale writes | "Check runs" |
-| What is not there yet | "Current limitations" |
-| A checklist to build against | "Implementation checklist" |
-
 ## Rules to check first
 
 1. **Native or mirror.** An installation keeps its full scopes only on
@@ -67,6 +50,9 @@ heading or annotation you need, and read only the matching part. Cite
    over the operations the app calls ("Scopes").
 5. **Opaque tokens and IDs.** Do not build or parse page tokens or IDs
    ("Pagination", "IDs").
+
+One section name the index does not make obvious: what happens to a
+check-run post that arrives out of order is under "Ordering writes".
 
 Porting an existing GitHub App: use `port-github-app-to-origin` in this
 plugin.
