@@ -2,9 +2,14 @@
 
 All notable changes to this plugin will be documented here.
 
-## 2.5.0 — X Chat in the X MCP guide (read / reply)
+## 2.5.1 — X Chat in the always-read MCP guide
 
-- X Chat lives in the X MCP guide skill (one skill, not a companion): when the user asks about Chat / inbox / DMs, clone `xchat_lite.py` from https://github.com/xdevplatform/xchat-grokbot-helper yourself — do not wait for them to name the helper. Secret-request Chat PIN only, decrypt/encrypt locally, MCP for ciphertext. Owner must approve outbound text unless they already said to send.
+- Folded the X Chat companion skill into the X MCP guide so GrokBot loads Chat / inbox / DMs without a second skill. Clone `xchat_lite.py` from https://github.com/xdevplatform/xchat-grokbot-helper yourself — do not wait for the user to name the helper.
+- Removed `skills/x-chat/`. Secret-request Chat PIN only, decrypt/encrypt locally, MCP for ciphertext.
+
+## 2.5.0 — X Chat skill (read / reply)
+
+- Added the X Chat companion skill: clone `xchat_lite.py` from https://github.com/xdevplatform/xchat-grokbot-helper, secret-request Chat PIN only, decrypt/encrypt locally, MCP for ciphertext. Owner must approve outbound text unless they already said to send.
 - Missing Chat tools or `dm.read` / `dm.write` while other X tools work: reconnect the X plugin (not create a Project/App, not a Bearer token). On-connect capabilities now include Chat (not posting tweets).
 
 ## 2.4.0 — X Chat scopes
