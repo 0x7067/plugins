@@ -2,6 +2,10 @@
 
 All notable changes to this plugin will be documented here.
 
+## 1.0.3 — lowercase display name
+
+- Changes the display name to `etoro`.
+
 ## 1.0.2 — eToro branding
 
 - Renames the display name to `eToro` and replaces the logo with eToro's current mark, both as requested by eToro.
