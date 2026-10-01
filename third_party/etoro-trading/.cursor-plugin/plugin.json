@@ -1,7 +1,7 @@
 {
   "name": "etoro-trading",
-  "displayName": "eToro",
-  "version": "1.0.2",
+  "displayName": "etoro",
+  "version": "1.0.3",
   "minClientVersions": {
     "cursor": "3.13.0"
   },
