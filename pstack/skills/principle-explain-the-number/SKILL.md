@@ -2,6 +2,7 @@
 name: principle-explain-the-number
 description: "Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think."
 disable-model-invocation: true
+metadata: { source: "Brendan Gregg, Evaluating the Evaluation: A Benchmarking Checklist, https://www.brendangregg.com/blog/2018-06-30/benchmarking-checklist.html" }
 ---
 
 # Explain the Number
@@ -21,5 +22,3 @@ For a performance number, run the full procedure with the [benchmark-checklist](
 You skipped this when the evidence behind a number has no run count, no spread, or no named limiter, or when the time saved is larger than the time the changed piece took.
 
 Distinct from [Prove It Works](../principle-prove-it-works/SKILL.md), which checks that an output is real. This checks that a measured number means what you say it means.
-
-Source: Brendan Gregg, "Evaluating the Evaluation: A Benchmarking Checklist" (brendangregg.com/blog/2018-06-30/benchmarking-checklist.html), fetched 2026-10-02.

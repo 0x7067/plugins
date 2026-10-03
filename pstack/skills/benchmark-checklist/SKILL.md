@@ -2,6 +2,7 @@
 name: benchmark-checklist
 description: "Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. Use when you run a benchmark or report a speedup or regression you measured."
 disable-model-invocation: true
+metadata: { source: "Brendan Gregg, Evaluating the Evaluation: A Benchmarking Checklist, https://www.brendangregg.com/blog/2018-06-30/benchmarking-checklist.html" }
 ---
 
 # Benchmark checklist
@@ -37,5 +38,3 @@ For a quick ballpark the user asked for, one run is enough. Still check question
 
 - The **Perf issue** playbook finds and fixes slowness, and its strategy families generate the fixes. This skill vets its baseline before the playbook plans from it, and every number after that.
 - The **Hillclimb** playbook loops on one metric. This skill vets its harness before the harness is frozen. The frozen harness then prints error and work counts, so each keep-or-revert checks questions 4 and 7 for free.
-
-Source: Brendan Gregg, "Evaluating the Evaluation: A Benchmarking Checklist" (brendangregg.com/blog/2018-06-30/benchmarking-checklist.html), fetched 2026-10-02. The questions are his. The agent-facing steps and the report shape are ours.
