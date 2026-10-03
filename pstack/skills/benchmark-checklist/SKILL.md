@@ -2,7 +2,6 @@
 name: benchmark-checklist
 description: "Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. Use when you run a benchmark or report a speedup or regression you measured."
 disable-model-invocation: true
-metadata: { source: "Brendan Gregg, Evaluating the Evaluation: A Benchmarking Checklist, https://www.brendangregg.com/blog/2018-06-30/benchmarking-checklist.html" }
 ---
 
 # Benchmark checklist

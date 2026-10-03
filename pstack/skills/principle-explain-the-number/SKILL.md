@@ -2,7 +2,6 @@
 name: principle-explain-the-number
 description: "Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think."
 disable-model-invocation: true
-metadata: { source: "Brendan Gregg, Evaluating the Evaluation: A Benchmarking Checklist, https://www.brendangregg.com/blog/2018-06-30/benchmarking-checklist.html" }
 ---
 
 # Explain the Number
