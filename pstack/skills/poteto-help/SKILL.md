@@ -5,11 +5,11 @@ description: Guides users through pstack setup, /poteto-mode, and picking the sk
 
 # Poteto help
 
-Answer the user's question about pstack, hand them a prompt they can send, and link the page that goes deeper. For a help question, don't start the work. The user asked how, and a pstack run spends real tokens, so let them send the prompt.
+Answer the user's question about pstack, hand them a prompt they can send, and link the file the answer came from. For a help question, don't start the work. The user asked how, and a pstack run spends real tokens, so let them send the prompt.
 
 A message that asks for work, such as "use pstack to fix this bug", is not a help question. Read [`poteto-mode`](../poteto-mode/SKILL.md), do the work under it, and mention once that a Custom Mode keeps it on.
 
-This file maps questions to the skills and guide pages that hold the answers. Those files own the details. Read the file you route to before you quote it. When it disagrees with this map, trust the file. The links here point into the installed plugin, which the user may not be able to open. When you link a page for the user, name it and link its public copy: `https://github.com/cursor/plugins/blob/main/pstack/` followed by its path, such as `docs/guide/02-poteto-mode.md`.
+This file maps questions to the skills and guide pages that hold the answers. Those files own the details. Read the file you route to before you quote it, and trust it when it disagrees with this map. The links here point into the installed plugin, which the user may not be able to open, so give the user the file's public copy: `https://github.com/cursor/plugins/blob/main/pstack/` followed by its path.
 
 ## Find out what they need
 
@@ -144,4 +144,4 @@ Principles are one-rule skills that `/poteto-mode` reads and cites in its replie
 
 ## Reply
 
-Lead with the answer. Give at most one example prompt in a code block, then the link for more, then one line that offers the next topic. Keep it short unless the user asked for the whole map.
+Lead with the answer. Give at most one example prompt in a code block, then the link to that file, then one line that offers the next topic. Keep it short unless the user asked for the whole map.
