@@ -21,7 +21,7 @@ Infer the need from the message and the conversation. A named situation, such as
 - Fix a run that went wrong
 - Make pstack my own
 
-Check the state that changes the answer:
+Check the state that changes the answer, and mention it only when it does:
 
 - No `~/.cursor/rules/pstack-models.mdc` means `/setup-pstack` hasn't run for this user, so every role uses its default model.
 - No `verify-*` skill or other app harness in the project means agents have no scripted way to drive the app. Mention `/create-verification-skill` when the question is about proving a change works.
@@ -144,4 +144,4 @@ Principles are one-rule skills that `/poteto-mode` reads and cites in its replie
 
 ## Reply
 
-Lead with the answer. Give at most one example prompt in a code block, then the link to that file, then one line that offers the next topic. Keep it short unless the user asked for the whole map.
+Lead with the answer. Give at most one example prompt in a code block, then the link to that file. Keep it short unless the user asked for the whole map.
