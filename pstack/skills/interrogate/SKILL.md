@@ -37,7 +37,7 @@ Launch all reviewers in a single message using the Task tool. Use the `interroga
 
 | Subagent | Default model |
 |----------|---------------|
-| Reviewer A | `claude-opus-5-5-max` |
+| Reviewer A | `claude-opus-5-5-xhigh` |
 | Reviewer B | `grok-4.7-xhigh-fast` |
 
 For each reviewer:
