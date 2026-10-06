@@ -56,13 +56,13 @@ how explorer: grok-4.7-xhigh-fast
 how explainer: claude-opus-5-5-max
 why investigators: grok-4.7-xhigh-fast
 why synthesizer: claude-opus-5-5-max
-reflect tooling: gpt-5.6-sol-max
+reflect tooling: grok-4.7-xhigh-fast
 reflect judgment, divergent, synthesizer: claude-opus-5-5-max
-arena runners: claude-opus-5-5-max, gpt-5.6-sol-max, grok-4.7-xhigh-fast
-arena cross-judge pool: claude-opus-5-5-max, gpt-5.6-sol-max, grok-4.7-xhigh-fast
+arena runners: claude-opus-5-5-max, grok-4.7-xhigh-fast
+arena cross-judge pool: claude-opus-5-5-max, grok-4.7-xhigh-fast
 swarm workers: grok-4.7-xhigh-fast
-architect runners: claude-opus-5-5-max, gpt-5.6-sol-max, grok-4.7-xhigh-fast
-interrogate reviewers: claude-opus-5-5-max, gpt-5.6-sol-max, grok-4.7-xhigh-fast
+architect runners: claude-opus-5-5-max, grok-4.7-xhigh-fast
+interrogate reviewers: claude-opus-5-5-max, grok-4.7-xhigh-fast
 ```
 
 ### 6. Confirm
