@@ -512,6 +512,11 @@
       "name": "quickbooks-online",
       "source": "third_party/quickbooks-online",
       "description": "Read invoices, bills, expenses, customers, accounts, and financial reports."
+    },
+    {
+      "name": "workday",
+      "source": "third_party/workday",
+      "description": "Look up workers, organizations, time off, payroll, and recruiting data in Workday."
     }
   ]
 }
